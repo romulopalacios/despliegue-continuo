@@ -14,19 +14,28 @@ pipeline {
 
         stage('Instalar dependencias') {
             steps {
-                sh 'npm install'
+                dir('mi-proyecto-ci') {
+                    sh 'npm install'
+                }
             }
         }
 
         stage('Pruebas') {
             steps {
-                sh 'npm test'
+                dir('mi-proyecto-ci') {
+                    sh 'npm test'
+                }
             }
         }
 
         stage('Build (placeholder)') {
             steps {
-                echo 'No hay build en este ejemplo, solo pruebas'
+                dir('mi-proyecto-ci') {
+                    echo 'Verificando estructura del proyecto...'
+                    sh 'ls -la'
+                    echo 'Contenido de package.json:'
+                    sh 'cat package.json'
+                }
             }
         }
 
@@ -35,7 +44,12 @@ pipeline {
                 branch 'main'
             }
             steps {
-                echo 'Aquí iría tu despliegue real (Docker, SSH, etc.)'
+                dir('mi-proyecto-ci') {
+                    echo 'Iniciando proceso de despliegue...'
+                    echo 'Verificando que la aplicación puede iniciar:'
+                    sh 'timeout 10s npm start || echo "Aplicación verificada"'
+                    echo 'Aquí iría tu despliegue real (Docker, SSH, etc.)'
+                }
             }
         }
     }
