@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Proyecto CI/CD - Jenkins Pipeline</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <i class="fas fa-rocket"></i>
+                <h1>Pipeline CI/CD Dashboard</h1>
+                <p class="subtitle">Integración y Despliegue Continuo con Jenkins</p>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="card welcome-card">
+                <div class="card-header">
+                    <i class="fas fa-home"></i>
+                    <h2>¡Bienvenido!</h2>
+                </div>
+                <div class="card-content">
+                    <p id="welcome-message">Cargando mensaje...</p>
+                    <div class="status-indicators">
+                        <div class="status-item">
+                            <i class="fas fa-server"></i>
+                            <span>Servidor: <span id="server-status" class="status-ok">Activo</span></span>
+                        </div>
+                        <div class="status-item">
+                            <i class="fas fa-clock"></i>
+                            <span>Último deploy: <span id="last-deploy">Cargando...</span></span>
+                        </div>
+                        <div class="status-item">
+                            <i class="fas fa-code-branch"></i>
+                            <span>Versión: <span id="app-version">2.0.0</span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card pipeline-card">
+                <div class="card-header">
+                    <i class="fas fa-cogs"></i>
+                    <h2>Estado del Pipeline</h2>
+                </div>
+                <div class="card-content">
+                    <div class="pipeline-stages">
+                        <div class="stage completed">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Checkout</span>
+                        </div>
+                        <div class="stage completed">
+                            <i class="fas fa-download"></i>
+                            <span>Dependencies</span>
+                        </div>
+                        <div class="stage completed">
+                            <i class="fas fa-vial"></i>
+                            <span>Tests</span>
+                        </div>
+                        <div class="stage completed">
+                            <i class="fas fa-hammer"></i>
+                            <span>Build</span>
+                        </div>
+                        <div class="stage completed">
+                            <i class="fas fa-rocket"></i>
+                            <span>Deploy</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card info-card">
+                <div class="card-header">
+                    <i class="fas fa-info-circle"></i>
+                    <h2>Información del Sistema</h2>
+                </div>
+                <div class="card-content">
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <i class="fab fa-node-js"></i>
+                            <div>
+                                <h3>Node.js</h3>
+                                <p>Runtime de JavaScript</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fab fa-npm"></i>
+                            <div>
+                                <h3>NPM</h3>
+                                <p>Gestor de paquetes</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-tools"></i>
+                            <div>
+                                <h3>Jenkins</h3>
+                                <p>CI/CD Pipeline</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fab fa-git-alt"></i>
+                            <div>
+                                <h3>Git</h3>
+                                <p>Control de versiones</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card actions-card">
+                <div class="card-header">
+                    <i class="fas fa-play-circle"></i>
+                    <h2>Acciones</h2>
+                </div>
+                <div class="card-content">
+                    <div class="action-buttons">
+                        <button id="refresh-btn" class="btn btn-primary">
+                            <i class="fas fa-sync-alt"></i>
+                            Actualizar Estado
+                        </button>
+                        <button id="health-check-btn" class="btn btn-secondary">
+                            <i class="fas fa-heartbeat"></i>
+                            Health Check
+                        </button>
+                        <a href="/api/status" target="_blank" class="btn btn-info">
+                            <i class="fas fa-code"></i>
+                            Ver API
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2025 - Proyecto CI/CD con Jenkins | Integración de Plataformas</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
